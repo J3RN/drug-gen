@@ -1,0 +1,70 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           drug-gen
+version:        0.1.0.0
+synopsis:       Generates a name for a new drug
+description:    Please see the README on GitHub at <https://github.com/J3RN/drug-gen#readme>
+homepage:       https://github.com/J3RN/drug-gen#readme
+bug-reports:    https://github.com/J3RN/drug-gen/issues
+author:         Jonathan Arnett
+maintainer:     jonathan.arnett@protonmail.com
+copyright:      2022 Jonathan Arnett
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/J3RN/drug-gen
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_drug_gen
+  hs-source-dirs:
+      src
+  build-depends:
+      MonadRandom >=0.5.3 && <1
+    , base >=4.7 && <5
+    , containers >=0.6.4.1 && <1
+    , random >=1.2.1 && <2
+  default-language: Haskell2010
+
+executable drug-gen-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_drug_gen
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      MonadRandom >=0.5.3 && <1
+    , base >=4.7 && <5
+    , containers >=0.6.4.1 && <1
+    , drug-gen
+    , random >=1.2.1 && <2
+  default-language: Haskell2010
+
+test-suite drug-gen-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_drug_gen
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      MonadRandom >=0.5.3 && <1
+    , base >=4.7 && <5
+    , containers >=0.6.4.1 && <1
+    , drug-gen
+    , random >=1.2.1 && <2
+  default-language: Haskell2010

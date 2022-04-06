@@ -1,0 +1,51 @@
+name:                drug-gen
+version:             0.1.0.0
+github:              "J3RN/drug-gen"
+license:             BSD3
+author:              "Jonathan Arnett"
+maintainer:          "jonathan.arnett@protonmail.com"
+copyright:           "2022 Jonathan Arnett"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            Generates a name for a new drug
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/J3RN/drug-gen#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers >= 0.6.4.1 && < 1
+- random >= 1.2.1 && < 2
+- MonadRandom >= 0.5.3 && < 1
+
+library:
+  source-dirs: src
+
+executables:
+  drug-gen-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - drug-gen
+
+tests:
+  drug-gen-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - drug-gen
